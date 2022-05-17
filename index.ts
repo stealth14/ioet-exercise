@@ -1,5 +1,5 @@
 import { Employee } from "./models";
-import { example1, example2, example3, example4 } from "./examples.json";
+import { example1, example2, example3, example4, example5 } from "./examples.json";
 
 import * as Moment from "moment";
 import { extendMoment } from "moment-range";
@@ -35,6 +35,13 @@ const testCases: TestCase[] = [
       ["ANDRES", "RENE", 6],
       ["ANDRES", "KEVIN", 6],
       ["KEVIN", "RENE", 6],
+    ],
+  },
+  {
+    testNumber: 5,
+    employees: example5 as Employee[],
+    expectedResult: [
+      ["KEVIN", "RENE", 2],
     ],
   },
 ];
@@ -97,26 +104,20 @@ function solve(employees: Employee[]): Array<Array<string | number>> {
 // Testing the code
 function main(): void {
   const failed: number[] = [];
-  console.log("\n\n========== Start ==========");
   testCases.forEach((testCase) => {
     try {
+      
       const results = solve(testCase.employees);
-
-      //display expected results
-      console.log("expected results:");
-      console.table(testCase.expectedResult);
-
-      //display obtained results
-      console.log("obtained results:");
-      console.table(results);
       const passed = TestCase.validate(testCase.expectedResult, results);
 
-      console.log(
-        `Test #${testCase.testNumber} ${passed ? "passed" : "failed:"}`
-      );
+      console.log(`\n\n========== TEST #${testCase.testNumber} ${passed ? "PASSED" : "PASSED:"} ==========`);
+
+      //display obtained results
+      console.log("\n OBTAINED RESULTS:");
+      console.table(results);
 
       if (!passed) {
-        throw Error("Wrong results");
+        throw Error("Test case failed");
       }
     } catch (e) {
       console.log(
@@ -142,7 +143,7 @@ class TestCase {
   expectedResult: Array<Array<string | number>>;
 
   /**
-   * Checks length of coincidences found, validates deeper values.
+   * Checks length of coincidences, validates deeper values of the result table.
    * @param expectedResults
    * @param results
    * @returns
