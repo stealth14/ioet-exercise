@@ -17,7 +17,7 @@
     "eslint": "^8.14.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx tsc --outDir build index.ts && node build/index.js "
   },
   "author": "",
   "license": "ISC"
