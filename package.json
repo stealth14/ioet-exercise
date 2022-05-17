@@ -16,7 +16,7 @@
     "eslint": "^8.14.0"
   },
   "scripts": {
-    "start": "npx tsc --outDir build index.ts && node build/index.js "
+    "start": "npx tsc --resolveJsonModule --outDir build index.ts && node build/index.js "
   },
   "author": "",
   "license": "ISC",
