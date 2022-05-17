@@ -1,5 +1,5 @@
 import { Employee } from "./models";
-import { example1, example2 } from "./examples.json";
+import { example1, example2, example3, example4 } from "./examples.json";
 
 import * as Moment from "moment";
 import { extendMoment } from "moment-range";
@@ -22,6 +22,20 @@ const testCases: TestCase[] = [
     testNumber: 2,
     employees: example2 as Employee[],
     expectedResult: [["RENE", "ASTRID", 3]],
+  },
+  {
+    testNumber: 3,
+    employees: example3 as Employee[],
+    expectedResult: [["ANDRES", "ASTRID", 3]],
+  },
+  {
+    testNumber: 4,
+    employees: example4 as Employee[],
+    expectedResult: [
+      ["ANDRES", "RENE", 6],
+      ["ANDRES", "KEVIN", 6],
+      ["KEVIN", "RENE", 6],
+    ],
   },
 ];
 
