@@ -1,7 +1,9 @@
 import { Employee } from "./models";
 import { EXAMPLE_1_EMPLOYEES, EXAMPLE_2_EMPLOYEES } from "./examples";
+
 import * as Moment from "moment";
 import { extendMoment } from "moment-range";
+
 import * as _ from "lodash";
 
 const moment = extendMoment(Moment);
