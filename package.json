@@ -1,7 +1,6 @@
 {
-  "name": "test",
+  "name": "ioet-exercise",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {
     "lodash": "^4.17.21",
@@ -20,5 +19,14 @@
     "start": "npx tsc --outDir build index.ts && node build/index.js "
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stealth14/ioet-exercise.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stealth14/ioet-exercise/issues"
+  },
+  "homepage": "https://github.com/stealth14/ioet-exercise#readme",
+  "description": ""
 }
