@@ -53,7 +53,7 @@ The script basically groups employees in pairs and compares its schedules.
   );
 ```
 
-2) Each pair is proccesed to find coincidences of time intervals **coincidences**.
+2) Each pair is proccesed to find **coincidences** of time intervals.
 
 ```
 const comparePair = (pair) => {
