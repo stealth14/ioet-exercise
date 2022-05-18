@@ -16,7 +16,7 @@
 ## OVERVIEW
 
 This is a node project with minimal typescript configurations.
-Aside from plain typescript, it was neccesary to use `moment` and `moment-range` libraries because of javascript lack of features to handle date operations
+Aside from plain typescript, it was neccesary to use `moment` and `moment-range` libraries because of javascript lack of features to handle date operations reliably.
 
 ### ARCHITECTURE / METHODOLOGY
 
@@ -53,7 +53,7 @@ The script basically groups employees in pairs and compares its schedules.
   );
 ```
 
-2) Each pair is proccesed to find **coincidences** of time intervals.
+2) Each pair of employees is proccesed to find **coincidences** of time intervals.
 
 ```
 const comparePair = (pair) => {
@@ -79,7 +79,7 @@ const comparePair = (pair) => {
     ]
 ```
 
-3) Finally the ```validate``` method compares the output with the expected results. 
+3) Finally the results are evaluated by the ```validate``` method . 
 
 ## SOLUTION SCOPE
 
