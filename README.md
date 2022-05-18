@@ -16,7 +16,7 @@
 ## OVERVIEW
 
 This is a node project with minimal typescript configurations.
-Aside from plain typescript, it was neccesary to use the `moment` and `moment-range` because of javascript lack of features to handle date operations
+Aside from plain typescript, it was neccesary to use `moment` and `moment-range` libraries because of javascript lack of features to handle date operations
 
 ### ARCHITECTURE / METHODOLOGY
 
