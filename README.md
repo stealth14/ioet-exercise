@@ -16,7 +16,7 @@
 ## OVERVIEW
 
 This is a node project with minimal typescript configurations.
-Aside from plain typescript, it was neccesary to use `moment` and `moment-range` libraries because of javascript lack of features to handle date operations reliably.
+Aside from plain typescript, it was neccesary to install the `moment` and `moment-range` libraries because of javascript lack of features to handle  operations with time intervals reliably.
 
 ### ARCHITECTURE / METHODOLOGY
 
@@ -34,7 +34,7 @@ The entire solution is heavily influenced by TDD techniques.
     ],
   }
   ```
-- A test function checks the criteria completion of the output
+- A test function validates the output
 ```
     static validate = (
     expectedResults: Array<Array<string | number>>,
@@ -53,7 +53,7 @@ The script basically groups employees in pairs and compares its schedules.
   );
 ```
 
-2) Each pair of employees is proccesed to find **coincidences** of time intervals.
+2) Each pair of employees is proccesed to find time intervals which collide.
 
 ```
 const comparePair = (pair) => {
@@ -85,12 +85,12 @@ const comparePair = (pair) => {
 
 It is possible to:
 
-- [x] Add, modify or remove employees from any exercise as well as their work schedules defined as (intervals). 
+- [x] Add, modify or remove employees from any exercise as well as their work intervals. 
 
 - [x] Edit the [examples.json](./examples.json) file to modify or add more examples, 
-just remember to do as well with the correspondent test case definition. 
+just remember to do as well with the correspondent **test case definition**. 
 
-Note: You can find the test case definitions in the [index.ts](./index.ts) file.
+Note: You can find the **test case definitions** in the [index.ts](./index.ts) file.
 
 ```
 const testCases: TestCase[] = [
