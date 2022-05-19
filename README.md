@@ -4,7 +4,7 @@
 
 1) Clone this repo
 2) Open the project with your preferred editor
-3) Open a terminal window on the project directory (Please, use git bash if you are a Windows user)
+3) Open a terminal window on the project directory (Open `git bash` if your machine is running Windows)
 4) Run `npm install` command  
 
 ## EXECUTION
