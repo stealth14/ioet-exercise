@@ -1,4 +1,4 @@
-import { Employee, Range } from "./models";
+import { Employee } from "./models";
 import {
   example1,
   example2,
