@@ -16,7 +16,6 @@
 ## OVERVIEW
 
 This is a node project with minimal typescript configurations.
-Aside from plain typescript, it was necesary to install the `moment` and `moment-range` libraries because of javascript lack of features to handle  operations with time intervals reliably.
 
 ### ARCHITECTURE / METHODOLOGY
 
