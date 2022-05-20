@@ -1,12 +1,13 @@
-import { Employee } from "./models";
-import { example1, example2, example3, example4, example5 } from "./examples.json";
-
-import * as Moment from "moment";
-import { extendMoment } from "moment-range";
+import { Employee, Range } from "./models";
+import {
+  example1,
+  example2,
+  example3,
+  example4,
+  example5,
+} from "./examples.json";
 
 import * as _ from "lodash";
-
-const moment = extendMoment(Moment);
 
 const testCases: TestCase[] = [
   {
@@ -40,11 +41,33 @@ const testCases: TestCase[] = [
   {
     testNumber: 5,
     employees: example5 as Employee[],
-    expectedResult: [
-      ["KEVIN", "RENE", 2],
-    ],
+    expectedResult: [["KEVIN", "RENE", 2]],
   },
 ];
+
+interface CalculationRange {
+  start: Date;
+  end: Date;
+}
+/**
+ * Detects interval intersections
+ * @param firstInterval 
+ * @param secondInterval 
+ * @returns 
+ */
+function intercept(
+  firstInterval: CalculationRange,
+  secondInterval: CalculationRange
+) {
+  return (
+    Math.max(
+      0,
+      Math.min(Number(secondInterval.end), Number(firstInterval.end)) -
+        Math.max(Number(firstInterval.start), Number(secondInterval.start)) +
+        1
+    ) > 0
+  );
+}
 
 /**
  * Compares two employees to find coincidences
@@ -57,15 +80,15 @@ const comparePair = (pair: Employee[]): Array<string | number> | null => {
 
   pair[0].intervals.forEach((firstInterval) => {
     pair[1].intervals.forEach((secondInterval) => {
-      const firstRange = moment.range(
-        moment(firstInterval.start),
-        moment(firstInterval.end)
-      );
-      const secondRange = moment.range(
-        moment(secondInterval.start),
-        moment(secondInterval.end)
-      );
-      if (firstRange.intersect(secondRange)) {
+      const firstRange = {
+        start: new Date(firstInterval.start),
+        end: new Date(firstInterval.end),
+      };
+      const secondRange = {
+        start: new Date(secondInterval.start),
+        end: new Date(secondInterval.end),
+      };
+      if (intercept(firstRange, secondRange)) {
         coincidences++;
       }
     });
@@ -106,11 +129,14 @@ function main(): void {
   const failed: number[] = [];
   testCases.forEach((testCase) => {
     try {
-      
       const results = solve(testCase.employees);
       const passed = TestCase.validate(testCase.expectedResult, results);
 
-      console.log(`\n\n========== TEST #${testCase.testNumber} ${passed ? "PASSED" : "PASSED:"} ==========`);
+      console.log(
+        `\n\n========== TEST #${testCase.testNumber} ${
+          passed ? "PASSED" : "FAILED:"
+        } ==========`
+      );
 
       //display obtained results
       console.log("\n OBTAINED RESULTS:");
