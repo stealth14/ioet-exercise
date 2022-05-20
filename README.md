@@ -15,7 +15,7 @@
 
 ## OVERVIEW
 
-This is a node project with minimal typescript configurations.
+This is a node project with minimal typescript configurations.No libraries installed aside from Lodash which is used only for automated testing.
 
 ### ARCHITECTURE / METHODOLOGY
 
